@@ -39,6 +39,7 @@ public class CLI {
                     searchByTag();
                     break;
                 case "q":
+                    noteManager.saveNotesToJSON();
                     System.out.println("Saving notes and exiting!");
                     return;
                 default:
@@ -74,8 +75,7 @@ public class CLI {
         System.out.println("Enter note tags (comma separated):");
         System.out.println("---------------------");
         String[] tags = scanner.nextLine().split(",");
-        List<String> tagsList = Arrays.asList(tags);
-        noteManager.addNote(new Note(title, text, tagsList));
+        noteManager.addNote(new Note(title, text, Arrays.asList(tags)));
     }
 
     private void removeNote() {
@@ -86,6 +86,9 @@ public class CLI {
         noteManager.deleteNote(title);
     }
 
+    /* THESE SEARCHES WOULD BE BETTER DONE IN ONE METHOD THAT TAKES THE FIELD AS PARAMETER
+     * for example: search(String field) => search("title"), search("text"), search("tag"
+     */
     private void searchByTitle() {
         System.out.println("---------------------");
         System.out.println("Enter title to search:");
