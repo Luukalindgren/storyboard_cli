@@ -1,0 +1,57 @@
+[
+    {
+        "title": "Java Programming",
+        "text": "Learned about object-oriented programming concepts in Java.",
+        "tags": [
+            "Java",
+            "programming",
+            "object-oriented"
+        ]
+    },
+    {
+        "title": "Web Development",
+        "text": "Explored HTML, CSS, and JavaScript for building web applications.",
+        "tags": [
+            "web development",
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ]
+    },
+    {
+        "title": "Python Scripting",
+        "text": "Wrote scripts in Python to automate tasks and process data.",
+        "tags": [
+            "Python",
+            "scripting",
+            "automation"
+        ]
+    },
+    {
+        "title": "Machine Learning",
+        "text": "Studied machine learning algorithms and techniques for data analysis.",
+        "tags": [
+            "machine learning",
+            "data analysis",
+            "algorithms"
+        ]
+    },
+    {
+        "title": "Mobile App Development",
+        "text": "Developed Android applications using Java and Kotlin.",
+        "tags": [
+            "mobile app development",
+            "Android",
+            "Java",
+            "Kotlin"
+        ]
+    },
+    {
+        "title": "Version Control",
+        "text": "Used Git for version control to manage project repositories.",
+        "tags": [
+            "version control",
+            "Git"
+        ]
+    }
+]
