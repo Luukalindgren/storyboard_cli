@@ -1,11 +1,37 @@
+/** Jackson JSON library for easier JSON processing */
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class NoteManager {
     private List<Note> notes;
+    private static final String NOTES_FILE_PATH = "data/notes.txt";
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    public NoteManager(List<Note> notes) {
-        this.notes = notes;
+    public NoteManager() {
+        this.notes = new ArrayList<Note>();
+    }
+
+    public void loadNotesFromJSON() {
+        try {
+            notes = objectMapper.readValue(new File(NOTES_FILE_PATH), new TypeReference<List<Note>>(){});
+            System.out.println("Notes loaded from JSON");
+        } catch (IOException e) {
+            System.out.println("Error loading notes from JSON" + e.getMessage());
+        }
+    }
+
+    public void saveNotesToJSON() {
+        try {
+            objectMapper.writeValue(new File(NOTES_FILE_PATH), notes);
+            System.out.println("Notes saved to JSON");
+        } catch (IOException e) {
+            System.out.println("Error saving notes to JSON" + e.getMessage());
+        }
     }
 
     public void addNote(Note note) {
