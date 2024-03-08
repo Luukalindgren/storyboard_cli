@@ -9,7 +9,7 @@ public class Note {
     
     public Note() {
     }
-    
+
     public Note(String title, String text, List<String> tags) {
         this.title = title;
         this.text = text;
@@ -35,6 +35,6 @@ public class Note {
     }
     @Override
     public String toString() {
-        return "Title: " + title + ", \nText: " + text + ", \nTags: " + tags + "\n";
+        return "Title: " + title + ", \nText: " + text + ", \nTags: " + tags;
     }
 }
