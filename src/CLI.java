@@ -30,7 +30,7 @@ public class CLI {
                     listAllNotes();
                     break;
                 case "4":
-                    //searchByTitle();
+                    searchByTitle();
                     break;
                 case "5":
                     //searchByText();
@@ -84,7 +84,24 @@ public class CLI {
         System.out.println("---------------------");
         String title = scanner.nextLine();
         noteManager.deleteNote(title);
+    }
 
+    private void searchByTitle() {
+        System.out.println("---------------------");
+        System.out.println("Enter title to search:");
+        System.out.println("---------------------");
+        String title = scanner.nextLine();
+        if (noteManager.searchByTitle(title).isEmpty()) {
+            System.out.println("No notes found");
+            return;
+        }
+        System.out.println("---------------------");
+        System.out.println("Matching notes:");
+        System.out.println("---------------------");
+        for (Note note : noteManager.searchByTitle(title)) {
+            System.out.println(note);
+            System.out.println("---------------------");
+        }
     }
 
     private void listAllNotes() {
