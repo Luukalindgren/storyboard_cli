@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.Arrays;
+
 
 public class CLI {
     private static final Scanner scanner = new Scanner(System.in);
@@ -6,16 +9,19 @@ public class CLI {
 
     public void start() {
         noteManager.loadNotesFromJSON();
+        System.out.println("---------------------");
         System.out.println("Welcome to the Storyboard!");
+        System.out.println("---------------------");
         displayMenu();
     
         while(true) {
             System.out.println("Please select an option:");
+            System.out.println("---------------------");
             String input = scanner.nextLine().trim().toLowerCase();
             
             switch (input) {
                 case "1":
-                    //addNote();
+                    addNote();
                     break;
                 case "2":
                     //removeNote();
@@ -45,6 +51,7 @@ public class CLI {
 
     private void displayMenu() {
         System.out.println("Menu:");
+        System.out.println("---------------------");
         System.out.println("1. Add note");
         System.out.println("2. Remove note");
         System.out.println("3. List all notes");
@@ -54,13 +61,34 @@ public class CLI {
         System.out.println("Q. Exit");
     }
 
+    private void addNote() {
+        System.out.println("---------------------");
+        System.out.println("Enter note title:");
+        System.out.println("---------------------");
+        String title = scanner.nextLine();
+        System.out.println("---------------------");
+        System.out.println("Enter note text:");
+        System.out.println("---------------------");
+        String text = scanner.nextLine();
+        System.out.println("---------------------");
+        System.out.println("Enter note tags (comma separated):");
+        System.out.println("---------------------");
+        String[] tags = scanner.nextLine().split(",");
+        List<String> tagsList = Arrays.asList(tags);
+        noteManager.addNote(new Note(title, text, tagsList));
+    }
+
     private void listAllNotes() {
         if (noteManager.listAllNotes().isEmpty()) {
             System.out.println("No notes found");
             return;
         }
+        System.out.println("---------------------");
+        System.out.println("All notes:");
+        System.out.println("---------------------");
         for (Note note : noteManager.listAllNotes()) {
             System.out.println(note);
+            System.out.println("---------------------");
         }
     }
 }

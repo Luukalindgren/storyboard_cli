@@ -36,7 +36,12 @@ public class NoteManager {
     }
 
     public void addNote(Note note) {
-        notes.add(note);
+        try {
+            notes.add(note);
+            System.out.println("Note added!");
+        } catch (Exception e) {
+            System.out.println("Error adding note: " + e.getMessage());
+        }
     }
 
     /** For simplicity remove works only with given Note title */
