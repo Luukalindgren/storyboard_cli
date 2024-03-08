@@ -24,7 +24,7 @@ public class CLI {
                     addNote();
                     break;
                 case "2":
-                    //removeNote();
+                    removeNote();
                     break;
                 case "3":
                     listAllNotes();
@@ -76,6 +76,15 @@ public class CLI {
         String[] tags = scanner.nextLine().split(",");
         List<String> tagsList = Arrays.asList(tags);
         noteManager.addNote(new Note(title, text, tagsList));
+    }
+
+    private void removeNote() {
+        System.out.println("---------------------");
+        System.out.println("Enter note title to remove:");
+        System.out.println("---------------------");
+        String title = scanner.nextLine();
+        noteManager.deleteNote(title);
+
     }
 
     private void listAllNotes() {

@@ -49,6 +49,7 @@ public class NoteManager {
         for (Note note : notes) {
             if (note.getTitle().equals(title)) {
                 notes.remove(note);
+                System.out.println("Note removed!");
                 break;
             }
         }
