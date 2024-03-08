@@ -36,7 +36,7 @@ public class CLI {
                     searchByText();
                     break;
                 case "6":
-                    //searchByTag();
+                    searchByTag();
                     break;
                 case "q":
                     System.out.println("Saving notes and exiting!");
@@ -122,7 +122,23 @@ public class CLI {
         }
     }
 
-    
+    private void searchByTag() {
+        System.out.println("---------------------");
+        System.out.println("Enter tag to search:");
+        System.out.println("---------------------");
+        String tag = scanner.nextLine();
+        if (noteManager.searchByTag(tag).isEmpty()) {
+            System.out.println("No notes found");
+            return;
+        }
+        System.out.println("---------------------");
+        System.out.println("Matching notes:");
+        System.out.println("---------------------");
+        for (Note note : noteManager.searchByTag(tag)) {
+            System.out.println(note);
+            System.out.println("---------------------");
+        }
+    }
 
 
 
