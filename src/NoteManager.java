@@ -9,11 +9,11 @@ import java.util.List;
 
 public class NoteManager {
     private List<Note> notes;
-    private static final String NOTES_FILE_PATH = "data/notes.txt";
+    private static final String NOTES_FILE_PATH = "data/notes.JSON";
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     public NoteManager() {
-        this.notes = new ArrayList<Note>();
+        this.notes = new ArrayList<>();
     }
 
     public void loadNotesFromJSON() {
@@ -21,7 +21,8 @@ public class NoteManager {
             notes = objectMapper.readValue(new File(NOTES_FILE_PATH), new TypeReference<List<Note>>(){});
             System.out.println("Notes loaded from JSON");
         } catch (IOException e) {
-            System.out.println("Error loading notes from JSON" + e.getMessage());
+            System.out.println("Error loading notes from JSON");
+            e.printStackTrace();
         }
     }
 
