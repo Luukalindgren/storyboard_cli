@@ -26,6 +26,7 @@ public class NoteManager {
         }
     }
 
+    /** Currently rewrites the whole file, does not work like git that adds only changes. */
     public void saveNotesToJSON() {
         try {
             objectMapper.writeValue(new File(NOTES_FILE_PATH), notes);
