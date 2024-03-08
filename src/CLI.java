@@ -33,7 +33,7 @@ public class CLI {
                     searchByTitle();
                     break;
                 case "5":
-                    //searchByText();
+                    searchByText();
                     break;
                 case "6":
                     //searchByTag();
@@ -103,6 +103,28 @@ public class CLI {
             System.out.println("---------------------");
         }
     }
+
+    private void searchByText() {
+        System.out.println("---------------------");
+        System.out.println("Enter text to search:");
+        System.out.println("---------------------");
+        String text = scanner.nextLine();
+        if (noteManager.searchByText(text).isEmpty()) {
+            System.out.println("No notes found");
+            return;
+        }
+        System.out.println("---------------------");
+        System.out.println("Matching notes:");
+        System.out.println("---------------------");
+        for (Note note : noteManager.searchByText(text)) {
+            System.out.println(note);
+            System.out.println("---------------------");
+        }
+    }
+
+    
+
+
 
     private void listAllNotes() {
         if (noteManager.listAllNotes().isEmpty()) {
