@@ -7,6 +7,9 @@ public class Note {
     private String text;
     private List<String> tags = new ArrayList<String>();
     
+    public Note() {
+    }
+    
     public Note(String title, String text, List<String> tags) {
         this.title = title;
         this.text = text;
