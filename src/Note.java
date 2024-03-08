@@ -1,12 +1,13 @@
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Note {
 
     private String title;
     private String text;
-    private String[] tags;
+    private List<String> tags = new ArrayList<String>();
     
-    public Note(String title, String text, String[] tags) {
+    public Note(String title, String text, List<String> tags) {
         this.title = title;
         this.text = text;
         this.tags = tags;
@@ -23,15 +24,14 @@ public class Note {
     public void setText(String text) {
         this.text = text;
     }
-    public String[] getTags() {
+    public List<String> getTags() {
         return tags;
     }
-    public void setTags(String[] tags) {
+    public void setTags(List<String> tags) {
         this.tags = tags;
     }
     @Override
     public String toString() {
-        return "Title: " + title + ", \nText: " + text + ", \nTags:" + Arrays.toString(tags);
+        return "Title: " + title + ", \nText: " + text + ", \nTags: " + tags + "\n";
     }
-
 }
